@@ -1,0 +1,22 @@
+body {
+  background-image: url(../images/wallpaper.jpg); 
+  background-size: 100%;
+  background-position: top;
+  margin-left: 100px;   
+  margin-bottom: 100px;
+}
+
+table {
+  border: thin solid black;
+}
+  
+
+
+h1 {
+  padding-left: 200px;
+}
+
+form {
+  width: 100%;
+  justify-content: space-between;
+}
