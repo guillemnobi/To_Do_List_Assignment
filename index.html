@@ -1,100 +1,64 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
   <head>
-    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="">
-    <meta name="autdor" content="">
+    <meta name="viewport" content="width=device-width">
+    <title>Altcademy: Stock Portfolio Example</title>
+    <link href="style.css" rel="stylesheet" type="text/css" />
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-    <script src="js/application.js"></script>
-    <!-- <link href="css/bootstrap.min.css" rel="stylesheet" media="all"> -->
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
-    <link href="css/custom.css" rel="stylesheet">
+    <script src="script.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
   </head>
   <body>
-    <h1>Shopping Cart</h1>
-    <table class="table table-responsive">
-      <colgroup>
-        <col class="col-md-3">
-        <col class="col-md-3">
-        <col class="col-md-3">
-        <col class="col-md-2">
-        <col class="col-md-1">
-      </colgroup>
-      <tr>
-        <td class="food">Salmon</td>
-        <td class="unitPrice">60</td>
-        <td class="quantity"><label for="quantity">QTY</label><input type="number" id="quantity" name="quantity">
-        <td><button type="button" class="btn btn-outline-primary btn-sm remove">Remove</button></td>
-        <td class="totalProductPrice"></td>
-      </tr>
-      <tr>
-        <td class="food">Tuna</td>
-        <td class="unitPrice">50</td>
-        <td class="quantity"><label for="quantity">QTY</label><input type="number" id="quantity" name="quantity">
-        <td><button type="button" class="btn btn-outline-primary btn-sm remove">Remove</button></td>
-        <td class="totalProductPrice"></td>
-      </tr>
-      <tr>
-        <td class="food">Carp</td>
-        <td class="unitPrice">40</td>
-        <td class="quantity"><label for="quantity">QTY</label><input type="number" id="quantity" name="quantity">
-        <td><button type="button" class="btn btn-outline-primary btn-sm remove">Remove</button></td>
-        <td class="totalProductPrice"></td>
-      </tr>
-      <tr>
-        <td class="food">Pork</td>
-        <td class="unitPrice">50</td>
-        <td class="quantity"><label for="quantity">QTY</label><input type="number" id="quantity" name="quantity">
-        <td><button type="button" class="btn btn-outline-primary btn-sm remove">Remove</button></td>
-        <td class="totalProductPrice"></td>
-      </tr>
-      <tr>
-        <td class="food">Beef</td>
-        <td class="unitPrice">40</td>
-        <td class="quantity"><label for="quantity">QTY</label><input type="number" id="quantity" name="quantity">
-        <td><button type="button" class="btn btn-outline-primary btn-sm remove">Remove</button></td>
-        <td class="totalProductPrice"></td>
-      </tr>
-      <tr>
-        <td class="food">Chicken</td>
-        <td class="unitPrice">25</td>
-        <td class="quantity"><label for="quantity">QTY</label><input type="number" id="quantity" name="quantity">
-        <td><button type="button" class="btn btn-outline-primary btn-sm remove">Remove</button></td>
-        <td class="totalProductPrice"></td>
-      </tr>
-      <tr>
-        <td class="food">Cereal</td>
-        <td class="unitPrice">45</td>
-        <td class="quantity"><label for="quantity">QTY</label><input type="number" id="quantity" name="quantity">
-        <td><button type="button" class="btn btn-outline-primary btn-sm remove">Remove</button></td>
-        <td class="totalProductPrice"></td>
-      </tr>
-      <tr>
-        <td class="food">Milk</td>
-        <td class="unitPrice">20</td>
-        <td class="quantity"><label for="quantity">QTY</label><input type="number" id="quantity" name="quantity">
-        <td><button type="button" class="btn btn-outline-primary btn-sm remove">Remove</button></td>
-        <td class="totalProductPrice"></td>
-      </tr>
-      <tr>
-        <td class="food">Sugar</td>
-        <td class="unitPrice">10</td>
-        <td class="quantity"><label for="quantity">QTY</label><input type="number" id="quantity" name="quantity">
-        <td><button type="button" class="btn btn-outline-primary btn-sm remove">Remove</button></td>         
-        <td class="totalProductPrice"></td>
-      </tr>
-    </table>
-    <form class="mt-4 mb-4" id="addProduct">
-      <input class="mx-2" name="product" type="text" placeholder="Product" required/>
-      <input class="mx-2" name="price" type="number" placeholder="Price"/>
-      <input class="mx-2" name="quantity" type="number" placeholder="Quantity"/>
-      <button class="btn btn-outline-secondary btn-sm">add</button>
-    </form>
-    <div class="col-12">
-      <h3>Total Price: $ <span id="totalPrice"></span></h3>
+    <h1>To Do list</h1>
+
+    <div class="container col-xs-12 col-sm-10 col-sm-offset-1 col-md-8 col-md-offset-2 col-lg-6 col-lg-offset-3">
+      
+      <div id="todolistadder">
+        <div><input id="taskinput" class="form-control" placeholder="What needs to be done?" autocomplete="off">
+        </div>
+        <div>
+        <button id="markbutton" type="button" class="btn btn-outline-secondary">Mark All</button></div>
+      </div>
+
+      <div id="todolist">
+        <div id="taskdone" class="form-check"><input class="form-check-input" type="checkbox" value="" id="flexCheckDefault"></div>
+        <div id="task" class="task"><span class="mark-complete-button"></span><p class="task-content">groceries</p></div>
+        <div id="taskremover"><button type="button" class="btn btn-outline-light btn-xs">Remove</button></div>
+      </div>
+          <!-- ------------------------------------------- -->
+
+          
+
+          
+          <!-- <div class="task"><span class="mark-complete-button"></span><p class="task-content">studying</p><span class="remove-button">×</span></div>
+          <div class="task"><span class="mark-complete-button"></span><p class="task-content">what else¿?</p><span class="remove-button">×</span></div>
+          <div class="task"><span class="mark-complete-button"></span><p class="task-content">Wash laundry</p><span class="remove-button">×</span></div> -->
+
+      <div id="footer" style="display: flex;">
+        <div><span><span id="active-tasks">4</span> items left</span>
+        </div>
+        <div class="btn-group btn-group-toggle" data-toggle="buttons">
+          <label class="btn btn-secondary btn-xs active">
+            <input type="radio" name="options" id="option1" autocomplete="off" checked> All
+          </label>
+          <label class="btn btn-secondary btn-xs">
+            <input type="radio" name="options" id="option2" autocomplete="off"> Active
+          </label>
+          <label class="btn btn-secondary btn-xs">
+            <input type="radio" name="options" id="option3" autocomplete="off"> Completed
+          </label>
+        </div>
+      </div>
+      <!-- -------------------------------------------- -->
+    
     </div>
+
+
+
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
   </body>
 </html>
