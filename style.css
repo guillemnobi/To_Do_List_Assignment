@@ -11,6 +11,7 @@ body {
 .container {
   padding: 25px;
   width: 800px;
+  display: block;
 }
 
 
@@ -26,6 +27,7 @@ body {
   display: flex;
   justify-content: space-between;
   width: 100%;
+  position: relative;
 }
 
 /* #taskinput {
@@ -44,6 +46,8 @@ body {
   align-items: stretch; 
   padding:15px;
   text-align:left;
+  position: relative;
+
 }
 
 #footer {
