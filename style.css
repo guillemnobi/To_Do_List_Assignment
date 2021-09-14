@@ -5,6 +5,10 @@ body {
 
 }
 
+h1 {
+  font-size: 5rem;
+}
+
 .task {
   display: flex;
   align-items: stretch;
@@ -20,15 +24,22 @@ body {
   border: 1px solid blue;
   padding:15px;
   display: flex;
-  justify-content: space-between;
+
   width: 100%;
   position: relative;
+}
+
+#todolistadder *{
+  padding-left: 10px;
+  padding-right: 10px;
 }
 
 #todolistadder *::placeholder {
 
   color: green;
 }
+
+
 
 #todolist {
   border: 1px solid black; 
@@ -38,6 +49,10 @@ body {
   position: relative;
   font-size: 1.5rem;
   font-weight: bold;
+}
+
+.delete {
+  margin-right: 10px;
 }
 
 #footer {

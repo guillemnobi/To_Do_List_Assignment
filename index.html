@@ -16,12 +16,10 @@
     <div class="container col-xs-12 col-sm-10 col-sm-offset-1 col-md-8 col-md-offset-2 col-lg-6 col-lg-offset-3">
       
       <div id="todolistadder">
-        <div><input id="new-task-content" class="form-control" placeholder="What needs to be done?" autocomplete="off" required>
+        <div><input id="new-task-content" class="form-control" placeholder="Add your next To Do" autocomplete="off" required>
         </div>
         <div>
         <button id="createbutton" type="button" class="btn btn-outline-secondary">Create</button></div>
-        <div>
-        <button id="markbutton" type="button" class="btn btn-outline-secondary">Mark All</button></div>
       </div>
 
       <div id="todolist">
@@ -39,17 +37,15 @@
           <div class="task"><span class="mark-complete-button"></span><p class="task-content">Wash laundry</p><span class="remove-button">×</span></div> -->
 
       <div id="footer" style="display: flex;">
-        <div><span><span id="active-tasks">4</span> items left</span>
-        </div>
         <div class="btn-group btn-group-toggle" data-toggle="buttons">
-          <label class="btn btn-secondary btn-xs active">
+          <label class="btn btn-secondary btn-xs">
             <input type="radio" name="options" id="option1" autocomplete="off" checked> All
           </label>
           <label class="btn btn-secondary btn-xs">
-            <input type="radio" name="options" id="option2" autocomplete="off"> Active
+            <input type="radio" name="options" id="option2" autocomplete="off"> Completed
           </label>
           <label class="btn btn-secondary btn-xs">
-            <input type="radio" name="options" id="option3" autocomplete="off"> Completed
+            <input type="radio" name="options" id="option3" autocomplete="off"> Active
           </label>
         </div>
       </div>

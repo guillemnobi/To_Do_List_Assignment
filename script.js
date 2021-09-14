@@ -12,7 +12,7 @@ $(document).ready(function(){
       success: function (response, textStatus) {
         $('#todolist').empty(); 
         response.tasks.forEach(function (task) {
-          $('#todolist').append('<div class="row"><p class="col-xs-8">' + task.content + '</p><button class="delete" data-id="' + task.id + '">Delete</button><input type="checkbox" class="markcomplete" data-id="' + task.id + '"' + (task.completed ? 'checked' : '') + '>');
+          $('#todolist').append('<div class="row"><p class="col-xs-8">- ' + task.content + '</p><button class="delete" data-id="' + task.id + '">Delete</button><input type="checkbox" class="markcomplete" data-id="' + task.id + '"' + (task.completed ? 'checked' : '') + '>');
         });
       console.log(response);
       },
@@ -21,6 +21,9 @@ $(document).ready(function(){
       }
     });
   }
+
+  getAndDisplayAllTasks();  
+  
   var createTask = function () {
     $.ajax({
       type: 'POST',
@@ -46,6 +49,13 @@ $(document).ready(function(){
     e.preventDefault();
     createTask();
   });
+
+  $('#todolistadder').on('keypress',function(e) {
+    if(e.which == 13) {
+    e.preventDefault();
+    createTask();
+    }
+});
 
   var deleteTask = function (id) {
     $.ajax({
@@ -76,12 +86,89 @@ $(document).ready(function(){
         console.log(errorMessage);
       }
     });
-
-    $(document).on('change', '.markcomplete', function () {
-      console.log(this.checked);
-    });
-
   }
-  getAndDisplayAllTasks();
+
+  var markTaskActive = function (id) {
+    $.ajax({
+   type: 'PUT',
+      url: 'https://altcademy-to-do-list-api.herokuapp.com/tasks/' + id + '/mark_active?api_key=136',
+      dataType: 'json',
+      success: function (response, textStatus) {
+        getAndDisplayAllTasks();
+      },
+      error: function (request, textStatus, errorMessage) {
+        console.log(errorMessage);
+      }
+    });
+  }
+
+  $(document).on('change', '.markcomplete', function () {
+    if (this.checked) {
+      markTaskComplete($(this).data('id'));
+    } else {
+      markTaskActive($(this).data('id'));
+    }
+  });
+
+
+
+  $('#option1').on('click', function (e) {
+    e.preventDefault();
+    getAndDisplayAllTasks();
+  });
+
+  var getAndDisplayActiveTasks = function () {
+    $.ajax({
+      type: 'GET',
+      url: 'https://altcademy-to-do-list-api.herokuapp.com/tasks?api_key=136',
+      dataType: 'json',
+      success: function (response, textStatus) {
+        $('#todolist').empty(); 
+        response.tasks.forEach(function (task) {
+          if (task.completed) {
+            $('#todolist').append('<div class="row"><p class="col-xs-8">- ' + task.content + '</p><button class="delete" data-id="' + task.id + '">Delete</button><input type="checkbox" class="markcomplete" data-id="' + task.id + '"' + (task.completed ? 'checked' : '') + '>');      
+          }
+        });
+      console.log(response);
+      },
+      error: function (request, textStatus, errorMessage) {
+        console.log(errorMessage);
+      }
+    });
+  }
   
+  $('#option2').on('click', function (e) {
+    e.preventDefault();
+    getAndDisplayActiveTasks();
+  });
+
+  var getAndDisplayNonActiveTasks = function () {
+    $.ajax({
+      type: 'GET',
+      url: 'https://altcademy-to-do-list-api.herokuapp.com/tasks?api_key=136',
+      dataType: 'json',
+      success: function (response, textStatus) {
+        $('#todolist').empty(); 
+        response.tasks.forEach(function (task) {
+          if (task.completed === false) {
+            $('#todolist').append('<div class="row"><p class="col-xs-8">- ' + task.content + '</p><button class="delete" data-id="' + task.id + '">Delete</button><input type="checkbox" class="markcomplete" data-id="' + task.id + '"' + (task.completed ? 'checked' : '') + '>');      
+          }
+        });
+      console.log(response);
+      },
+      error: function (request, textStatus, errorMessage) {
+        console.log(errorMessage);
+      }
+    });
+  }
+  
+  $('#option3').on('click', function (e) {
+    e.preventDefault();
+    getAndDisplayNonActiveTasks();
+  });
 });
+
+
+
+
+
