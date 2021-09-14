@@ -1,8 +1,16 @@
 body {
-  background: #a5c1d8;
+  background-image: url(images/wallpaper.jpg);
   text-align: center;
   font-family: 'Courier New', Courier, monospace;
+  background-size: 100%;
+  background-position: top;
+  margin-left: 100px;   
+  margin-bottom: 100px;
+}
 
+label {
+  font-family: 'Courier New', Courier, monospace;
+  font-size: 1.5rem;
 }
 
 h1 {
