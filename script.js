@@ -11,10 +11,10 @@ $(document).ready(function(){
       dataType: 'json',
       success: function (response, textStatus) {
         $('#todolist').empty(); 
-        response.tasks.forEach(function (task) {
+        const sortedresponse = response.tasks.sort((a,b) => a.id - b.id)       
+        sortedresponse.forEach(function (task) {
           $('#todolist').append('<div class="row"><p class="col-xs-8">- ' + task.content + '</p><button class="delete" data-id="' + task.id + '">Delete</button><input type="checkbox" class="markcomplete" data-id="' + task.id + '"' + (task.completed ? 'checked' : '') + '>');
         });
-      console.log(response);
       },
       error: function (request, textStatus, errorMessage) {
         console.log(errorMessage);
@@ -110,8 +110,6 @@ $(document).ready(function(){
     }
   });
 
-
-
   $('#option1').on('click', function (e) {
     e.preventDefault();
     getAndDisplayAllTasks();
@@ -124,7 +122,8 @@ $(document).ready(function(){
       dataType: 'json',
       success: function (response, textStatus) {
         $('#todolist').empty(); 
-        response.tasks.forEach(function (task) {
+        const sortedresponse = response.tasks.sort((a,b) => a.id - b.id)       
+        sortedresponse.forEach(function (task) {
           if (task.completed) {
             $('#todolist').append('<div class="row"><p class="col-xs-8">- ' + task.content + '</p><button class="delete" data-id="' + task.id + '">Delete</button><input type="checkbox" class="markcomplete" data-id="' + task.id + '"' + (task.completed ? 'checked' : '') + '>');      
           }
@@ -149,7 +148,8 @@ $(document).ready(function(){
       dataType: 'json',
       success: function (response, textStatus) {
         $('#todolist').empty(); 
-        response.tasks.forEach(function (task) {
+        const sortedresponse = response.tasks.sort((a,b) => a.id - b.id)       
+        sortedresponse.forEach(function (task) {
           if (task.completed === false) {
             $('#todolist').append('<div class="row"><p class="col-xs-8">- ' + task.content + '</p><button class="delete" data-id="' + task.id + '">Delete</button><input type="checkbox" class="markcomplete" data-id="' + task.id + '"' + (task.completed ? 'checked' : '') + '>');      
           }
